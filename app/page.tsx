@@ -138,7 +138,7 @@ export default function Home() {
                 <br />
                 <br />
                 <span className="text-blue-300 font-medium">
-                  Entered lead's report will be automatically mailed by the Story Lens Automation to your email in couple of
+                Entered lead&apos;s report will be automatically mailed by the Story Lens Automation to your email in couple of
                   minutes/hours. If Any Issues arises, please contact at <a href="mailto:sivasish@chrisrubincreativ.com">sivasish@chrisrubincreativ.com</a> or <a href="mailto:support@chrisrubincreativ.com">support@chrisrubincreativ.com</a>
                 </span>
               </p>
