@@ -9,7 +9,7 @@ export default function Home() {
   const [passcode, setPasscode] = useState("")
   const [showToast, setShowToast] = useState(false)
 
-  const VALID_PASSCODE = "chris@crc"
+ const VALID_PASSCODE = process.env.NEXT_PUBLIC_VALID_PASSCODE
 
   const handlePasscodeSubmit = () => {
     if (passcode === VALID_PASSCODE) {
@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   const handleOpenForm = () => {
-    const n8nFormUrl = "https://brandmultiplier.app.n8n.cloud/form/3efd1ee4-892c-4249-9786-8bc312b21456"
+    const n8nFormUrl = process.env.NEXT_PUBLIC_N8N_FORM_URL 
     window.open(n8nFormUrl, "_blank")
   }
 
