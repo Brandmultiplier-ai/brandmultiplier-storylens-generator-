@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   const handleOpenForm = () => {
-    const n8nFormUrl = "https://brandmultiplier.app.n8n.cloud/form-test/3efd1ee4-892c-4249-9786-8bc312b21456"
+    const n8nFormUrl = "https://brandmultiplier.app.n8n.cloud/form/3efd1ee4-892c-4249-9786-8bc312b21456"
     window.open(n8nFormUrl, "_blank")
   }
 
