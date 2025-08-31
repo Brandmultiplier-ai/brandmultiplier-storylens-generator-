@@ -1,36 +1,37 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { Lock, User, Send } from "lucide-react"
+import type React from "react";
+import { useState } from "react";
+import { Lock, User, Send } from "lucide-react";
 
 export default function Home() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [passcode, setPasscode] = useState("")
-  const [showToast, setShowToast] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [passcode, setPasscode] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
- const VALID_PASSCODE = process.env.NEXT_PUBLIC_VALID_PASSCODE
+  const VALID_PASSCODE = process.env.NEXT_PUBLIC_VALID_PASSCODE;
 
   const handlePasscodeSubmit = () => {
     if (passcode === VALID_PASSCODE) {
-      setCurrentPage(3)
+      setCurrentPage(3);
     } else {
-      setShowToast(true)
-      setPasscode("")
-      setTimeout(() => setShowToast(false), 3000)
+      setShowToast(true);
+      setPasscode("");
+      setTimeout(() => setShowToast(false), 3000);
     }
-  }
+  };
 
   const handleOpenForm = () => {
-    const n8nFormUrl = process.env.NEXT_PUBLIC_N8N_FORM_URL 
-    window.open(n8nFormUrl, "_blank")
-  }
+    const n8nFormUrl = process.env.NEXT_PUBLIC_N8N_FORM_URL;
+
+    window.open(n8nFormUrl, "_blank");
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      handlePasscodeSubmit()
+      handlePasscodeSubmit();
     }
-  }
+  };
 
   // Page 1 - Welcome
   if (currentPage === 1) {
@@ -54,7 +55,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   // Page 2 - Passcode
@@ -81,7 +82,9 @@ export default function Home() {
               <Lock className="text-white" size={24} />
             </div>
             <h2 className="text-xl font-bold text-white mb-2">Secure Access</h2>
-            <p className="text-white text-opacity-70 text-sm">Enter your authorized passcode</p>
+            <p className="text-white text-opacity-70 text-sm">
+              Enter your authorized passcode
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -115,7 +118,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Page 3 - Dashboard
@@ -128,18 +131,31 @@ export default function Home() {
               <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-xl">
                 <User className="text-white" size={28} />
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Hello Chris! 👋</h1>
-              <p className="text-white/80 text-lg sm:text-xl">Your Lead Intake form is ready</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+                Hello Chris! 👋
+              </h1>
+              <p className="text-white/80 text-lg sm:text-xl">
+                Your Lead Intake form is ready
+              </p>
             </div>
 
             <div className="mb-8 sm:mb-12">
               <p className="text-white/70 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2">
-                Click the below button to visit the form and fill out leads info.
+                Click the below button to visit the form and fill out leads
+                info.
                 <br />
                 <br />
                 <span className="text-blue-300 font-medium">
-                Entered lead&apos;s report will be automatically mailed by the Story Lens Automation to your email in couple of
-                  minutes/hours. If Any Issues arises, please contact at <a href="mailto:sivasish@chrisrubincreativ.com">sivasish@chrisrubincreativ.com</a> or <a href="mailto:support@chrisrubincreativ.com">support@chrisrubincreativ.com</a>
+                  Entered lead&apos;s report will be automatically mailed by the
+                  Story Lens Automation to your email in couple of
+                  minutes/hours. If Any Issues arises, please contact at{" "}
+                  <a href="mailto:sivasish@chrisrubincreativ.com">
+                    sivasish@chrisrubincreativ.com
+                  </a>{" "}
+                  or{" "}
+                  <a href="mailto:support@chrisrubincreativ.com">
+                    support@chrisrubincreativ.com
+                  </a>
                 </span>
               </p>
             </div>
@@ -150,7 +166,9 @@ export default function Home() {
                 className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 md:px-12 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
               >
                 <Send size={20} className="sm:w-6 sm:h-6" />
-                <span className="text-sm sm:text-base md:text-lg">Click here to visit the form link</span>
+                <span className="text-sm sm:text-base md:text-lg">
+                  Click here to visit the form link
+                </span>
               </button>
             </div>
 
@@ -163,8 +181,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
-  return null
+  return null;
 }
